@@ -1,0 +1,13 @@
+vunit i_PipelinedCounter(PipelinedCounter(rtl))
+{
+    default clock is rising_edge(clk);
+    f_reset: assume {not rst_n};
+
+    fc_count: cover {unsigned(count) = 34};
+--    fc_tick: cover {
+--        tick='1';
+--        rst_n [+];
+--        clear='1';
+--        clear='0'
+--        };
+}

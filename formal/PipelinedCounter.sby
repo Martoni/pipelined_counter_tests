@@ -1,0 +1,25 @@
+[tasks]
+bmc
+cover
+prove
+
+[options]
+bmc: mode bmc
+cover: mode cover
+prove: mode prove
+cover: depth 70
+prove: depth 10
+
+[engines]
+smtbmc
+
+[script]
+ghdl --std=08 pipelinedcounter.vhd PipelinedCounter.psl -e PipelinedCounter
+prep -top PipelinedCounter
+
+[files]
+../hdl/pipelinedcounter.vhd
+PipelinedCounter.psl
+
+# to run it :
+# sby --yosys "yosys -m /opt/ghdl-yosys-plugin/ghdl.so" -f PipelinedCounter.sby
